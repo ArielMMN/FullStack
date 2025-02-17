@@ -1,0 +1,50 @@
+.perfil {
+    background-color: rgba(0, 0, 255, 0.185);
+    border-radius: 20px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.perfil img {
+    border-radius: 20px;
+}
+
+.curio {
+    background-color: rgba(0, 0, 0, 0.45);
+    color: beige;
+    border-radius: 20px;
+    align-items: center;
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+}
+
+.cont {
+    background-color: rgba(0, 0, 255, 0.185);
+    border-radius: 20px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.cont img {
+    height: 250px;
+    width: 250px;
+    border-radius: 20px;
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.45);
+    border-radius: 20px;
+    align-items: center;
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+}
+
+footer a {
+    color: beige;
+}
+
+footer a:hover {
+    color: rgba(0, 0, 255, 0.185);
+}
