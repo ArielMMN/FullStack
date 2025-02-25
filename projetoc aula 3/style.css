@@ -1,0 +1,49 @@
+body {
+    background-color: rgb(32, 32, 140);
+    color: white;
+}
+
+
+nav {
+    position: fixed;
+    display: inline;
+    width: 500px;
+    
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: blue;
+    border-radius: 10px;
+  }
+  
+  nav li {
+    float: left;
+    
+  }
+  
+  nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    
+  }
+  
+  
+  nav li a:hover {
+    background-color: orange;
+    border-radius: 10px;
+    color: black;
+  }
+
+img {
+    width: 300px;
+}
+
+.cont{
+}

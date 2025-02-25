@@ -1,0 +1,65 @@
+div {
+    margin: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 10px 10px gray;
+}
+
+div:hover {
+    background-color: red;
+    color: white;
+}
+
+
+.dotted {
+    border-style: dotted;
+    width: 100px;
+}
+
+.dashed {
+    border-style: dashed;
+    width: 200px;
+    
+}
+
+.solid {
+    border-style: solid;
+    width: 300px;
+}
+
+p, a {
+    background-color: blueviolet;
+}
+
+a {
+    display: block;
+}
+
+p {
+    display: inline;
+}
+
+#div_01 {
+    background-color: cadetblue;
+    display: inline;
+    position: relative;
+    left: 100px;
+    top: 200px;
+}
+
+#div_02{
+    display: inline;
+    background-color: burlywood;
+    position: absolute;
+    left: 100px;
+    top: 100px;
+}
+
+#contato {
+    display: inline;
+    background-color: green;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    z-index: -1;
+}

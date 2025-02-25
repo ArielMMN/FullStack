@@ -1,0 +1,43 @@
+body {
+    background-color: lightgrey;
+}
+
+
+#titulo {
+    border: solid blue;
+    background-color: bisque;
+    color: darkgreen;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+#titulo img {
+    height: 100px;
+}
+
+
+nav {
+    background-color: lightskyblue;
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+}
+
+nav a {
+    color: darkred ;
+    text-decoration: none;
+}
+
+
+.cores {
+    color: 
+    bisque
+    darkgreen
+    lightskyblue
+    lightgray
+    darkred
+    indigo
+    red
+    yellow;
+}
