@@ -12,11 +12,7 @@ body {
     display: inline;
     display: flex;
     justify-content: space-between;
-    position: fixed;
-    top: 5px;
-    width: 1845px;
     padding: 20px;
-    z-index: +1;
 }
 
 #titulo img {
@@ -28,12 +24,12 @@ nav {
     background-color: lightskyblue;
     display: flex;
     text-align: center;
+    justify-content: center;
     justify-content: space-around;
-    position: fixed;
-    top: 152px;
-    width: 1871px;
+    align-items: center;
     padding: 10px;
-    z-index: +1;
+    padding-right: 200px;
+    padding-left: 200px;
 }
 
 nav a {
@@ -42,42 +38,38 @@ nav a {
 }
 
 #intro {
-    position: absolute;
-    top: 200px;
+    width: auto;
+    height: auto;
     text-align: center;
-    font-family: "SansSerif";
-    font-size: 20pt;
+    
 }
 
 #intro p {
     color: indigo;
+    font-family: "SansSerif";
+    font-size: 20pt;
 }
 
 #livros {
-    position: absolute;
-    top: 800px;
-    width: 1800px;
-    justify-content: space-around;
     text-align: center;
+    word-spacing: 10px;
 }
 
 #livros img {
-    height: 500px;
+    height: 400px;
     width: 300px;
 }
 
 #learn {
-    position: absolute;
-    top: 1500px;
-    width: 1800px;
     justify-content: space-around;
     text-align: center;
 }
 
+iframe {
+    word-spacing: 10;
+}
+
 #contatos {
-    position: absolute;
-    top: 2100px;
-    width: 1800px;
     text-align: center;
     justify-content: center;
     align-items: center;
@@ -98,13 +90,12 @@ table{
 }
 
 #ref {
-    position: absolute;
-    top: 2400px;
-    width: 600px;
-    justify-content: space-around;
+    max-width: 700px;
+    margin: auto;
+    justify-content: center;
     text-align: center;
     background-color: yellow;
-    margin-left: 600px;
+    
 }
 
 #ref a {
@@ -112,13 +103,13 @@ table{
 }
 
 footer {
-    position: fixed;
-    bottom: 5px;
+    
     display: flex;
     background-color: bisque;
-    width: 1870px;
+
     justify-content: space-between;
     text-align: center;
+    align-items: center;
     padding: 10px;
     height: 100px;
     font-family: "Comic Sans MS";
