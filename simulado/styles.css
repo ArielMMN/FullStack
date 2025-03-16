@@ -1,0 +1,78 @@
+body {
+    text-align: center;
+    background-color: white;
+}
+.banner {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.banner img {
+    margin-left: 5px;
+}
+
+.reunion{
+    background-color: #6B4FA1; 
+    color: white; 
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    text-align: start;
+    align-content: center;
+    padding: 20px;
+    font-family: Georgia, serif;
+    
+}
+
+.nav {
+    margin: 10px 0;
+    color: blue;
+}
+.nav a {
+    margin: 0 10px;
+    color: blue;
+}
+
+.nav_2{
+    display: flex;
+    justify-content: center;
+    color: blue;
+}
+.nav_2 a {
+    margin: 0 10px;
+    color: blue;
+}
+
+.logo {
+    margin: 20px 0;
+}
+
+.galeria{
+    display: flex;
+    justify-content: center;
+}
+
+
+.cast{
+    text-align: start;
+    color: blue;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10PX;
+}
+
+#frase {
+    margin-top: 5PX;
+}
+
+.footer {
+    margin-top: 20px;
+    font-size: 20px;
+    color: blue;
+}
+.footer a {
+    color: blue;
+}
