@@ -21,10 +21,3 @@
 //for (let i = num; i>=0; i--){
 //   console.log(i)
 //}
-
-let num = prompt("digite um numero positivo: ")
-
-if(num > 0){
-    console.log("numéro invalido")
-}else if(num<=0)
-
