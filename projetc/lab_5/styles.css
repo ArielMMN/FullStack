@@ -1,0 +1,21 @@
+body{
+    display: flex;
+    align-items: center;
+    background-color: aquamarine;
+    flex-direction: column;
+}
+
+#canvas{
+    margin: 10px;
+    border: solid;
+    background-color: white;
+    max-width: 300px ;
+    max-height: 300px;
+}
+#canvas1{
+    margin: 10px;
+    border: solid;
+    background-color: white;
+    max-width: 300px ;
+    max-height: 300px;
+}
