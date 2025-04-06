@@ -12,10 +12,11 @@ body{
     max-width: 300px ;
     max-height: 300px;
 }
-#canvas1{
+#canvas2{
     margin: 10px;
     border: solid;
-    background-color: white;
+    background-color: aquamarine;
+    
     max-width: 300px ;
     max-height: 300px;
 }
