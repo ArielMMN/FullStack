@@ -1,0 +1,14 @@
+body{
+    display: flex;
+    align-items: center;
+    background-color: purple;
+    flex-direction: column;
+}
+
+#canvas{
+    margin: 10px;
+    border: solid;
+    background-color: grey;
+    max-width: 300px ;
+    max-height: 300px;
+}
