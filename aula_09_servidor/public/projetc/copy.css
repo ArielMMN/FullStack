@@ -1,0 +1,129 @@
+body {
+    background-color: lightgrey;
+    
+    font-size: 15pt;
+}
+
+
+#titulo {
+    border: solid blue;
+    background-color: bisque;
+    color: darkgreen;
+    display: inline;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+#titulo img {
+    height: 100px;
+}
+
+
+nav {
+    background-color: lightskyblue;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    padding-right: 200px;
+    padding-left: 200px;
+}
+
+nav a {
+    color: darkred ;
+    text-decoration: none;
+}
+
+#intro {
+    width: auto;
+    height: auto;
+    text-align: center;
+    
+}
+
+#intro p {
+    color: indigo;
+    font-family: "SansSerif";
+    font-size: 20pt;
+}
+
+#livros {
+    text-align: center;
+    word-spacing: 10px;
+}
+
+#livros img {
+    height: 400px;
+    width: 300px;
+}
+
+#learn {
+    justify-content: space-around;
+    text-align: center;
+}
+
+
+#contatos {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+th {
+    border: 1px solid red ;
+}
+
+table{
+    border: 4px dashed red;
+    margin: auto;
+}
+
+#tr1 {
+    color: red;
+}
+
+#ref {
+    max-width: 700px;
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+    background-color: yellow;
+    
+}
+
+#ref a {
+    color: red;
+}
+
+footer {
+    
+    display: flex;
+    background-color: bisque;
+
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+    padding: 10px;
+    height: 100px;
+    font-family: "Comic Sans MS";
+    font-size: 15px;
+}
+
+footer img {
+    height: 100px;
+}
+.cores {
+    color: 
+    bisque
+    darkgreen
+    lightskyblue
+    lightgray
+    darkred
+    indigo
+    red
+    yellow;
+}

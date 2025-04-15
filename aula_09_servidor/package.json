@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "colors": "^1.4.0",
+    "express": "^5.1.0"
+  },
+  "name": "aula_09_servidor",
+  "version": "1.0.0",
+  "description": "My first web server",
+  "main": "servidor.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArielMMN/FullStack.git"
+  },
+  "author": "Ariel M.M.N",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArielMMN/FullStack/issues"
+  },
+  "homepage": "https://github.com/ArielMMN/FullStack#readme"
+}

@@ -1,0 +1,92 @@
+body {
+    background-color: #ddd9ce;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.45);
+  border-radius: 10px;
+}
+
+nav li {
+  float: left;
+  
+}
+
+nav li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  background-color: rgba(0, 0, 255, 0.185);
+  
+}
+
+
+nav li a:hover {
+  background-color: #111;
+  border-radius: 10px;
+}
+
+
+#perfil {
+    background-color: rgba(0, 0, 255, 0.185);
+    border-radius: 20px;
+    margin: 10px;
+    padding: 10px;
+}
+
+#perfil img {
+    border-radius: 20px;
+}
+
+.curio {
+    background-color: rgba(0, 0, 0, 0.45);
+    color: beige;
+    border-radius: 20px;
+    align-items: center;
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+}
+
+.cont {
+    background-color: rgba(0, 0, 255, 0.185);
+    border-radius: 20px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.cont img {
+    height: 250px;
+    width: 250px;
+    border-radius: 20px;
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.45);
+    border-radius: 20px;
+    align-items: center;
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+}
+
+footer a {
+    color: beige;
+}
+
+footer a:hover {
+    color: rgba(0, 0, 255, 0.185);
+}
+
+
+table, th, td {
+    border: 1px solid;
+    margin-top: 20px;
+    background-color: rgba(138, 192, 71, 0.296);
+}
