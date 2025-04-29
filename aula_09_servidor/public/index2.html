@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Servidor</title>
+</head>
+<body>
+    <h1>FullStack !!!</h1>
+    <h2>Meu primeiro Servidor</h2>
+
+    <form action="/inicio" method="get">
+        <input type="submit" value="Clique para iniciar!">
+    </form>
+
+    <h2>exemplo de POST</h2>
+
+    <form action="/inicio" method="post">
+        <input type="submit" value="Clique para iniciar!">
+    </form>
+    
+    <h2>exemplo de cadastro de usuario get</h2>
+
+    <form action="/cadastrar" method="get">
+        <p>Nome: <input type="text" name="nome"></p>
+        <p>Email: <input type="email" name="email"></p>
+        <p>Senha: <input type="password" name="senha"></p>
+        <p>Data Nasc.: <input type="date" name="nascimento"></p>
+        <input type="submit" value="Cadastrar">
+    </form>
+
+    <h2>exemplo de cadastro de usuario post</h2>
+    <form action="/cadastrar" method="post">
+        <p>Nome: <input type="text" name="nome"></p>
+        <p>Email: <input type="email" name="email"></p>
+        <p>Senha: <input type="password" name="senha"></p>
+        <p>Data Nasc.: <input type="date" name="nascimento"></p>
+        <input type="submit" value="Cadastrar">
+    </form>
+
+    <h2>Exemplo de for no ejs</h2>
+
+    <form action="/for_ejs" method="get">
+        <p>Numero de Divs: <input type="number" name="num"></p>
+        <input type="submit" value="Clique para gerar Divs">
+    </form>
+</body>
+</html>
