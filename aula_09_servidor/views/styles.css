@@ -4,14 +4,7 @@ body{
     background-color: purple;
 }
 
-#div_cad{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-#div_log{
+#div_repos{
     position: absolute;
     top: 50%;
     left: 50%;
