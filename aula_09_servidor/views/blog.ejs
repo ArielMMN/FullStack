@@ -4,13 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Resposta para o User</title>
+    <title>Blog</title>
 </head>
+<style>
+    body{
+        background-color: grey;
+    }
+</style>
 <body>
-    <div id="div_repos">
-        <h1>Login! Resposta:</h1>
-        <p><%= mensagem %>  </p>
-        <p><%= login %></p>
-    </div>
+    <form action="/cad_blog" method="post">
+        <input type="submit" value="Criar Post">
+    </form>
+    <div></div>
 </body>
 </html>

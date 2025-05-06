@@ -1,0 +1,23 @@
+body{
+    text-align: center;
+    color: black;
+    background-color: grey;
+}
+
+#div_cad{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#div_log{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+a{
+    color: aqua;
+}

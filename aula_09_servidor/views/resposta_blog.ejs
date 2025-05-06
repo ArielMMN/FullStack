@@ -4,13 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Resposta para o User</title>
+    <title>Resposta cad blog</title>
 </head>
+<style>
+    body{
+        background-color: grey;
+        color: black;
+    }
+</style>
 <body>
     <div id="div_repos">
-        <h1>Login! Resposta:</h1>
-        <p><%= mensagem %>  </p>
-        <p><%= login %></p>
+        <h1>Post <%= mensagem %>  </h1>
+        <p><a href="/blog"> HOME</a></p>
     </div>
 </body>
 </html>
