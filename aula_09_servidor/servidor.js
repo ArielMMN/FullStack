@@ -37,9 +37,15 @@ app.get('/loga', function(requisicao, resposta){
     resposta.redirect('projetc/lab_08/Login.html')
 })
 
-app.get('/blog', function(requisicao, resposta){
-    resposta.render('blog.ejs', {posts: []})
-})
+app.get('/blog', function(requisicao, resposta) {
+    posts.find().toArray(function(err, resultados) {
+        if (err) {
+            resposta.send('Erro ao buscar os posts');
+        } else {
+            resposta.render('blog.ejs', { posts: resultados });
+        }
+    });
+});
 
 app.post('/cad_blog', function(requisicao, resposta){
     resposta.redirect('projetc/lab_09/cadastrar_post.html')
@@ -134,3 +140,13 @@ app.post('/cadpost', function(requisicao, resposta){
         });
        
       });
+
+app.get('/listaposts', function(requisicao, resposta) {
+    posts.find().toArray(function(err, resultados) {
+        if (err) {
+            resposta.send('Erro ao buscar os posts');
+        } else {
+            resposta.render('lista_posts.ejs', { posts: resultados });
+        }
+    });
+});

@@ -9,12 +9,33 @@
 <style>
     body{
         background-color: grey;
+        text-align: center;
+    }
+    .post {
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 15px;
+            color: black;
+            text-align: left;
+        }
+    a{
+        color: black;
     }
 </style>
 <body>
     <form action="/cad_blog" method="post">
         <input type="submit" value="Criar Post">
     </form>
-    <div></div>
+    <div>
+        <% posts.forEach(function(post) { %>
+            <div class="post">
+                <p><strong><%= post.db_titulo %></strong></p>
+                <p><%= post.db_resumo %></p>
+                <p><%= post.db_conteudo %></p>
+            </div>
+        <% }); %>
+    </div>
 </body>
 </html>
