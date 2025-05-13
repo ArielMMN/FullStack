@@ -15,6 +15,9 @@ var usuarios = dbo.collection("usuarios");
 var dboo = client.db("exemplo2_bd");
 var posts = dboo.collection("postss");
 
+var dbooo = client.db("webmotors");
+var user = dbooo.collection("usuarios");
+var carros = dbooo.collection("carros");
 
 app.use(express.static('public/'));
 app.use(bodyParser.urlencoded({extended: false }))
@@ -37,6 +40,14 @@ app.get('/loga', function(requisicao, resposta){
     resposta.redirect('projetc/lab_08/Login.html')
 })
 
+app.get('/cadast_user', function(requisicao, resposta){
+    resposta.redirect('projetc/lab_10/user/cadastro.html')
+})
+
+app.get('/log_user', function(requisicao, resposta){
+    resposta.redirect('projetc/lab_10/user/login.html')
+})
+
 app.get('/blog', function(requisicao, resposta) {
     posts.find().toArray(function(err, resultados) {
         if (err) {
@@ -50,6 +61,8 @@ app.get('/blog', function(requisicao, resposta) {
 app.post('/cad_blog', function(requisicao, resposta){
     resposta.redirect('projetc/lab_09/cadastrar_post.html')
 })
+
+
 
 app.post('/inicio', function(requisicao, resposta){
     resposta.redirect('aula_04/index.html')
@@ -120,6 +133,41 @@ app.get('/for_ejs' , function(requisicao, resposta){
     resposta.render('exemplo_for.ejs',{tamanho: num});
 })
 
+app.post("/atualiza_usuario", function(requisicao, resposta) {
+    var data = { db_email: requisicao.body.email, db_senha: requisicao.body.senha };
+    var newData = { $set: {db_senha: requisicao.body.novasenha} };
+
+    usuarios.updateOne(data, newData, function (err, result) {
+      console.log(result);
+      if (result.modifiedCount == 0) {
+        resposta.render('respost_log.ejs', {mensagem: "Usuário/senha não encontrado!",login: requisicao.body.email})
+      }else if (err) {
+        resposta.render('respost_log.ejs', {mensagem: "Erro ao atualizar usuário!",login: requisicao.body.email})
+      }else {
+        resposta.render('respost_log.ejs', {mensagem: "Usuário atualizado com sucesso!",login: requisicao.body.email})        
+      };
+    });
+   
+  });
+
+  app.post("/remover_usuario", function(requisicao, resposta) {
+    var data = { db_email: requisicao.body.email, db_senha: requisicao.body.senha };
+   
+    usuarios.deleteOne(data, function (err, result) {
+      console.log(result);
+      if (result.deletedCount == 0) {
+        resposta.render('respost_log.ejs', {mensagem: "Usuário/senha não encontrado!",login: requisicao.body.email})
+      }else if (err) {
+        resposta.render('respost_log.ejs', {mensagem: "Erro ao remover usuário!",login: requisicao.body.email})
+      }else {
+        resposta.render('respost_log.ejs', {mensagem: "Usuário removido com sucesso!",login: requisicao.body.email})        
+      };
+    });
+
+  });
+
+
+
 
 // lab 09
 app.post('/cadpost', function(requisicao, resposta){
@@ -131,7 +179,7 @@ app.post('/cadpost', function(requisicao, resposta){
     
     posts.insertOne(data, function (err) {
           if (err) {
-            resp.render('resposta_blog.ejs', 
+            resposta.render('resposta_blog.ejs', 
                 {mensagem: "Não Cadastrato!"})
           }else {
             resposta.render('resposta_blog.ejs', 
@@ -150,3 +198,46 @@ app.get('/listaposts', function(requisicao, resposta) {
         }
     });
 });
+
+// lab 10
+app.post('/cad_user', function(requisicao, resposta){
+    let nome = requisicao.body.nome;
+    let email = requisicao.body.email;
+    let senha = requisicao.body.senha;
+    let nascimento = requisicao.body.nascimento;
+
+    let data = {db_nome: nome,db_email: email,db_senha: senha,db_nascimento: nascimento}
+    
+    user.insertOne(data, function (err) {
+          if (err) {
+            resposta.render('resposta_car_cad.ejs', 
+                {mensagem: "Erro ao cadastrar usuário!", usuario: nome, login: email})
+          }else {
+            resposta.render('resposta_car_cad.ejs', 
+                {mensagem: "Cadastro finalizado com sucesso!", usuario: nome, login: email, idade: nascimento })       
+          };
+        });
+       
+      });
+
+app.post('/logi_user', function(requisicao, resposta){
+    let email = requisicao.body.email;
+    let senha = requisicao.body.senha;
+    
+    // busca banco de dados
+    let data =  {db_email: email, db_senha: senha};
+    //procure nos usarios com esses "requisitos"
+    user.find(data).toArray(function(err,items){
+        console.log(items);
+          if (items.length == 0) {
+            resposta.render('resposta_car_log.ejs', 
+                {mensagem: "Usuário/senha não encontrado!",login: email})
+          }else if (err) {
+            resposta.render('resposta_car_log.ejs', 
+                {mensagem: "Erro ao logar usuário!",login: email})
+          }else {
+            resposta.redirect('projetc/lab_10/home.html')
+          };
+    
+    })
+})

@@ -8,6 +8,27 @@
     <title>Lab 08/ login</title>
 </head>
 <body>
+   
+
+    <div>
+        <h1>Att senha</h1>
+        <form action="/atualiza_usuario" method="post">
+            <p>Email: <input type="email" name="email"></p>
+            <p>Senha: <input type="password" name="senha"></p>
+            <p>Nova Senha: <input type="password" name="novasenha"></p>
+            <input type="submit" value="Update">
+        </form>
+    </div>
+
+    <div>
+        <h2>Exemplo de remoção</h2>
+        <form action="/remover_usuario" method="post">
+            <p>Email: <input type="email" name="email"></p>
+            <p>Senha: <input type="password" name="senha"></p>
+            <input type="submit" value="Delete">
+        </form>
+    </div>
+    
     <div id="div_log">
         <h1>LOGIN!</h1>
         <form action="/log" method="post">
