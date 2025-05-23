@@ -44,6 +44,14 @@ app.get('/cadast_user', function(requisicao, resposta){
     resposta.redirect('projetc/lab_10/user/cadastro.html')
 })
 
+app.get('/cadast_carro', function(requisicao, resposta){
+  resposta.redirect('projetc/lab_10/carros/cadastro.html')
+})
+
+app.get('/home_car', function(requisicao, resposta){
+  resposta.redirect('projetc/lab_10/home.html')
+})
+
 app.get('/log_user', function(requisicao, resposta){
     resposta.redirect('projetc/lab_10/user/login.html')
 })
@@ -241,3 +249,23 @@ app.post('/logi_user', function(requisicao, resposta){
     
     })
 })
+
+app.post('/cad_carro', function(requisicao, resposta){
+  let marca = requisicao.body.marca;
+  let modelo = requisicao.body.modelo;
+  let ano = requisicao.body.ano;
+  let qtd = requisicao.body.qtd;
+
+  let data = {db_marca: marca,db_modelo: modelo,db_ano: ano,db_qtd: qtd}
+  
+  carros.insertOne(data, function (err) {
+        if (err) {
+          resposta.render('resposta_cad_carro.ejs', 
+              {mensagem: "Erro ao cadastrar carro!", marca_c: marca, modelo_c: modelo})
+        }else {
+          resposta.render('resposta_cad_carro.ejs', 
+              {mensagem: "Cadastro finalizado com sucesso!", marca_c: marca, modelo_c: modelo, ano_c: ano, qtd_c: qtd})       
+        };
+      });
+     
+    });
