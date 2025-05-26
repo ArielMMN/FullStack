@@ -4,16 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles.css">
-    <title>cad_carro</title>
+    <title>Document</title>
 </head>
 <body>
-    <div id="div_cad">
-        <h1>Faça o Cadastro do seu carro!</h1>
-        <form action="/cad_carro" method="post">
+    <div>
+        <h1>Att carro</h1>
+        <form action="/atualiza_carro" method="post">
             <p>Marca: <input type="text" name="marca"></p>
             <p>Modelo: <input type="text" name="modelo"></p>
             <p>Ano: <input type="number" name="ano"></p>
-            <p>Quantidade Disponivel: <input type="number" name="qtd"></p>
+            <h2>novos dados</h2>
+            <p>Marca Atualizada: <input type="text" name="novamarca"></p>
+            <p>Modelo Atualizado: <input type="text" name="novamodelo"></p>
+            <p>Ano Atualizado: <input type="number" name="novaano"></p>
+            <p>Quantidade Disponivel Atualizado: <input type="number" name="novaqtd"></p>
             <input type="submit" value="Cadastrar">
         </form>
     </div>

@@ -40,21 +40,7 @@ app.get('/loga', function(requisicao, resposta){
     resposta.redirect('projetc/lab_08/Login.html')
 })
 
-app.get('/cadast_user', function(requisicao, resposta){
-    resposta.redirect('projetc/lab_10/user/cadastro.html')
-})
 
-app.get('/cadast_carro', function(requisicao, resposta){
-  resposta.redirect('projetc/lab_10/carros/cadastro.html')
-})
-
-app.get('/home_car', function(requisicao, resposta){
-  resposta.redirect('projetc/lab_10/home.html')
-})
-
-app.get('/log_user', function(requisicao, resposta){
-    resposta.redirect('projetc/lab_10/user/login.html')
-})
 
 app.get('/blog', function(requisicao, resposta) {
     posts.find().toArray(function(err, resultados) {
@@ -197,17 +183,49 @@ app.post('/cadpost', function(requisicao, resposta){
        
       });
 
-app.get('/listaposts', function(requisicao, resposta) {
-    posts.find().toArray(function(err, resultados) {
+
+// lab 10------------------------------------------------------
+
+app.get('/cadast_user', function(requisicao, resposta){
+    resposta.redirect('projetc/lab_10/user/cadastro.html')
+})
+
+app.get('/gerenciamento_carro', function(requisicao, resposta){
+  resposta.redirect('projetc/lab_10/carros/gerenciamento.html')
+})
+
+app.get('/cadast_carro', function(requisicao, resposta){
+  resposta.redirect('projetc/lab_10/carros/cadastro.html')
+})
+
+app.get('/remove_carro', function(requisicao, resposta){
+  resposta.redirect('projetc/lab_10/carros/remove_car.html')
+})
+
+app.get('/atualizar_carro', function(requisicao, resposta){
+  resposta.redirect('projetc/lab_10/carros/atualiza_car.html')
+})
+
+app.get('/vender_carro', function(requisicao, resposta){
+  resposta.redirect('projetc/lab_10/carros/vender_carro.html')
+})
+
+
+app.get('/home_car', function(requisicao, resposta) {
+    carros.find().toArray(function(err, resultados) {
         if (err) {
             resposta.send('Erro ao buscar os posts');
         } else {
-            resposta.render('lista_posts.ejs', { posts: resultados });
+            resposta.render('home.ejs', {carros: resultados });
         }
     });
 });
 
-// lab 10
+app.get('/log_user', function(requisicao, resposta){
+    resposta.redirect('projetc/lab_10/user/login.html')
+})
+
+
 app.post('/cad_user', function(requisicao, resposta){
     let nome = requisicao.body.nome;
     let email = requisicao.body.email;
@@ -244,17 +262,19 @@ app.post('/logi_user', function(requisicao, resposta){
             resposta.render('resposta_car_log.ejs', 
                 {mensagem: "Erro ao logar usuário!",login: email})
           }else {
-            resposta.redirect('projetc/lab_10/home.html')
+            resposta.redirect('/home_car')
           };
     
     })
 })
 
+
+
 app.post('/cad_carro', function(requisicao, resposta){
+  let qtd = parseInt(requisicao.body.qtd);
   let marca = requisicao.body.marca;
   let modelo = requisicao.body.modelo;
   let ano = requisicao.body.ano;
-  let qtd = requisicao.body.qtd;
 
   let data = {db_marca: marca,db_modelo: modelo,db_ano: ano,db_qtd: qtd}
   
@@ -269,3 +289,78 @@ app.post('/cad_carro', function(requisicao, resposta){
       });
      
     });
+
+
+app.post("/remover_carro", function(requisicao, resposta) {
+    let marca = requisicao.body.marca;
+    let modelo = requisicao.body.modelo;
+    let ano = requisicao.body.ano;
+    let data = { db_marca: requisicao.body.marca, db_modelo: requisicao.body.modelo, db_ano: requisicao.body.ano };
+   
+    carros.deleteOne(data, function (err, result) {
+      console.log(result);
+      if (result.deletedCount == 0) {
+        resposta.render('resposta_remove_carro.ejs', {mensagem: "carro não encontrado!", marca_c: marca, modelo_c: modelo, ano_c: ano})
+      }else if (err) {
+        resposta.render('resposta_remove_carro.ejs', {mensagem: "Erro ao remover carro!",marca_c: marca, modelo_c: modelo, ano_c: ano})
+      }else {
+        resposta.render('resposta_remove_carro.ejs', {mensagem: "carro removido com sucesso!",marca_c: marca, modelo_c: modelo, ano_c: ano})        
+      };
+    });
+
+  });
+
+  app.post("/atualiza_carro", function(requisicao, resposta) {
+    let novamarca = requisicao.body.novamarca;
+    let novamodelo = requisicao.body.novamodelo;
+    let novaano = requisicao.body.novaano;
+    let novaqtd = parseInt(requisicao.body.novaqtd);
+    let data = { db_marca: requisicao.body.marca, db_modelo: requisicao.body.modelo, db_ano: requisicao.body.ano };
+    var newData = { $set: {db_marca: requisicao.body.novamarca, db_modelo: requisicao.body.novamodelo, db_ano: requisicao.body.novaano, db_qtd: novaqtd} };
+
+    carros.updateOne(data, newData, function (err, result) {
+      console.log(result);
+      if (result.modifiedCount == 0) {
+        resposta.render('resposta_atualiza_carro.ejs', {mensagem: "carro não encontrado!", marca_c: novamarca, modelo_c: novamodelo, ano_c: novaano, qtd_c:novaqtd })
+      }else if (err) {
+        resposta.render('resposta_atualiza_carro.ejs', {mensagem: "Erro ao atualizar carro!",marca_c: novamarca, modelo_c: novamodelo, ano_c: novaano, qtd_c:novaqtd })
+      }else {
+        resposta.render('resposta_atualiza_carro.ejs', {mensagem: "carro atualizado com sucesso!",marca_c: novamarca, modelo_c: novamodelo, ano_c: novaano, qtd_c:novaqtd })        
+      };
+    });
+   
+  });
+
+app.post("/vende_carro", function(requisicao, resposta) {
+  let marca = requisicao.body.marca;
+  let modelo = requisicao.body.modelo;
+  let ano = requisicao.body.ano;
+  let filtro = { db_marca: marca, db_modelo: modelo, db_ano: ano };
+
+  carros.findOne(filtro, function (err, carro) {
+    if (err) {
+      resposta.render('resposta_atualiza_carro.ejs', {mensagem: "Erro ao buscar carro!", marca_c: marca, modelo_c: modelo, ano_c: ano, qtd_c: "?" });
+    } else if (!carro) {
+      resposta.render('resposta_atualiza_carro.ejs', {mensagem: "carro não encontrado!", marca_c: marca, modelo_c: modelo, ano_c: ano, qtd_c: "?" });
+    } else {
+      if (carro.db_qtd > 0) {
+        let novaQuantidade = carro.db_qtd - 1;
+        var newData = { $set: { db_qtd: novaQuantidade } };
+
+        carros.updateOne(filtro, newData, function (err, result) {
+          console.log(result);
+          if (result.modifiedCount == 0) {
+            resposta.render('resposta_atualiza_carro.ejs', {mensagem: "carro não encontrado!", marca_c: marca, modelo_c: modelo, ano_c: ano, qtd_c: novaQuantidade });
+          } else if (err) {
+            resposta.render('resposta_atualiza_carro.ejs', {mensagem: "Erro ao vender carro!", marca_c: marca, modelo_c: modelo, ano_c: ano, qtd_c: novaQuantidade });
+          } else {
+            let mensagemFinal = novaQuantidade === 0 ? "Carro esgotado!" : "Carro vendido com sucesso!";
+            resposta.render('resposta_atualiza_carro.ejs', {mensagem: mensagemFinal, marca_c: marca, modelo_c: modelo, ano_c: ano, qtd_c: novaQuantidade });
+          };
+        });
+      } else {
+        resposta.render('resposta_atualiza_carro.ejs', {mensagem: "Carro esgotado!", marca_c: marca, modelo_c: modelo, ano_c: ano, qtd_c: carro.db_qtd });
+      }
+    }
+  });
+});
